@@ -30,5 +30,8 @@
     "vite": "^4.3.9",
     "vite-plugin-dts": "^2.3.0",
     "vitest": "^0.31.1"
+  },
+  "dependencies": {
+    "@regions-of-indonesia/types": "1.0.0-0"
   }
 }

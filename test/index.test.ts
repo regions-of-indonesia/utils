@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { REGION_CODE_REGEXP, isRegionCode, joinRegionCode, splitRegionCode } from "../src";
+import {
+  REGION_CODE_REGEXP,
+  isTypeofObject,
+  isTypeofString,
+  isRegionCode,
+  isRegionName,
+  isRegion,
+  joinRegionCode,
+  splitRegionCode,
+} from "../src";
 
 const JOINED_REGION_CODES = [
   "1",
@@ -76,16 +85,53 @@ describe("REGION_CODE_REGEXP", () => {
     expect(REGION_CODE_REGEXP).toBeInstanceOf(RegExp);
   });
 
-  it("test() matches", () => {
+  it("truthy", () => {
     REGION_CODE_MATCHES.forEach((code) => {
       expect(REGION_CODE_REGEXP.test(code)).toBeTruthy();
     });
   });
 
-  it("test() not matches", () => {
+  it("falsy", () => {
     REGION_CODE_NOT_MATCHES.forEach((code) => {
       expect(REGION_CODE_REGEXP.test(code)).toBeFalsy();
     });
+  });
+});
+
+describe("isTypeofObject", () => {
+  it("type", () => {
+    expect(isTypeofObject).toBeTypeOf("function");
+    expect(isTypeofObject).toBeInstanceOf(Function);
+  });
+
+  it("truthy", () => {
+    expect(isTypeofObject({})).toBeTruthy();
+    expect(isTypeofObject(Object())).toBeTruthy();
+    expect(isTypeofObject(null)).toBeTruthy();
+  });
+
+  it("falsy", () => {
+    expect(isTypeofObject("")).toBeFalsy();
+    expect(isTypeofObject(0)).toBeFalsy();
+    expect(isTypeofObject(false)).toBeFalsy();
+  });
+});
+
+describe("isTypeofString", () => {
+  it("type", () => {
+    expect(isTypeofString).toBeTypeOf("function");
+    expect(isTypeofString).toBeInstanceOf(Function);
+  });
+
+  it("truthy", () => {
+    expect(isTypeofString("")).toBeTruthy();
+    expect(isTypeofString(String(""))).toBeTruthy();
+  });
+
+  it("falsy", () => {
+    expect(isTypeofString({})).toBeFalsy();
+    expect(isTypeofString(0)).toBeFalsy();
+    expect(isTypeofString(false)).toBeFalsy();
   });
 });
 
@@ -95,16 +141,52 @@ describe("isRegionCode", () => {
     expect(isRegionCode).toBeInstanceOf(Function);
   });
 
-  it("() matches", () => {
+  it("truthy", () => {
     REGION_CODE_MATCHES.forEach((code) => {
       expect(isRegionCode(code)).toBeTruthy();
     });
   });
 
-  it("() not matches", () => {
+  it("falsy", () => {
     REGION_CODE_NOT_MATCHES.forEach((code) => {
       expect(isRegionCode(code)).toBeFalsy();
     });
+  });
+});
+
+describe("isRegionName", () => {
+  it("type", () => {
+    expect(isRegionName).toBeTypeOf("function");
+    expect(isRegionName).toBeInstanceOf(Function);
+  });
+
+  it("truthy", () => {
+    expect(isRegionName("Region")).toBeTruthy();
+    expect(isRegionName(String("Region"))).toBeTruthy();
+  });
+
+  it("falsy", () => {
+    expect(isRegionName({})).toBeFalsy();
+    expect(isRegionName(0)).toBeFalsy();
+    expect(isRegionName(false)).toBeFalsy();
+  });
+});
+
+describe("isRegion", () => {
+  it("type", () => {
+    expect(isRegion).toBeTypeOf("function");
+    expect(isRegion).toBeInstanceOf(Function);
+  });
+
+  it("truthy", () => {
+    expect(isRegion({ code: "1", name: "Region" })).toBeTruthy();
+  });
+
+  it("falsy", () => {
+    expect(isRegion({})).toBeFalsy();
+    expect(isRegion({ code: "1" })).toBeFalsy();
+    expect(isRegion({ name: "Region" })).toBeFalsy();
+    expect(isRegion({ code: "Region", name: "1" })).toBeFalsy();
   });
 });
 
