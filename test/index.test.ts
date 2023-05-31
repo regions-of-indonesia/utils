@@ -198,7 +198,7 @@ describe("joinRegionCode", () => {
 
   it("equal", () => {
     SPLITTED_REGION_CODES.forEach((element, index) => {
-      expect(joinRegionCode(...element)).toEqual(JOINED_REGION_CODES[index]);
+      expect(joinRegionCode(element)).toEqual(JOINED_REGION_CODES[index]);
     });
   });
 });

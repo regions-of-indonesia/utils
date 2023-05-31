@@ -11,7 +11,7 @@ const isRegionName = (value?: unknown): value is string => isTypeofString(value)
 const isRegion = (value?: unknown): value is Region =>
   isTypeofObject(value) && value != null && "code" in value && "name" in value && isRegionCode(value.code) && isRegionName(value.name);
 
-const joinRegionCode = (...values: string[]) => values.join(".");
+const joinRegionCode = (values: string[]) => values.join(".");
 const splitRegionCode = (value: string) => value.split(".");
 
 export { REGION_CODE_REGEXP };
