@@ -1,11 +1,9 @@
 lockfileVersion: '6.0'
 
-dependencies:
+devDependencies:
   '@regions-of-indonesia/types':
     specifier: 1.0.0-0
     version: 1.0.0-0
-
-devDependencies:
   '@vitest/ui':
     specifier: ^0.31.1
     version: 0.31.1(vitest@0.31.1)
@@ -485,7 +483,7 @@ packages:
 
   /@regions-of-indonesia/types@1.0.0-0:
     resolution: {integrity: sha512-dI9giQyHm7Jv/YLAiZwlZhEHhVYBPrpVkn0DBeB4xj5qvJF4vOpDqJHfEV4pCu2Ixe2L5LjZ6nJ+fEdoseAEyQ==}
-    dev: false
+    dev: true
 
   /@rollup/pluginutils@5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
