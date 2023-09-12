@@ -33,11 +33,11 @@
     "release": "pnpm test && pnpm build && release-it"
   },
   "devDependencies": {
-    "@regions-of-indonesia/types": "5.0.1",
-    "@vitest/ui": "^0.31.1",
-    "release-it": "^15.10.3",
-    "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.3.0",
-    "vitest": "^0.31.1"
+    "@regions-of-indonesia/types": "5.1.0",
+    "@vitest/ui": "^0.34.4",
+    "release-it": "^16.1.5",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3",
+    "vitest": "^0.34.4"
   }
 }
