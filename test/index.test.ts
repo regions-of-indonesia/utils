@@ -1,15 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  REGION_CODE_REGEXP,
-  isTypeofObject,
-  isTypeofString,
-  isRegionCode,
-  isRegionName,
-  isRegion,
-  joinRegionCode,
-  splitRegionCode,
-} from "../src";
+import { REGION_CODE_REGEXP, isRegionCode, isRegionName, isRegion, joinRegionCode, splitRegionCode } from "../src";
 
 const JOINED_REGION_CODES = [
   "1",
@@ -95,43 +86,6 @@ describe("REGION_CODE_REGEXP", () => {
     REGION_CODE_NOT_MATCHES.forEach((code) => {
       expect(REGION_CODE_REGEXP.test(code)).toBeFalsy();
     });
-  });
-});
-
-describe("isTypeofObject", () => {
-  it("type", () => {
-    expect(isTypeofObject).toBeTypeOf("function");
-    expect(isTypeofObject).toBeInstanceOf(Function);
-  });
-
-  it("truthy", () => {
-    expect(isTypeofObject({})).toBeTruthy();
-    expect(isTypeofObject(Object())).toBeTruthy();
-    expect(isTypeofObject(null)).toBeTruthy();
-  });
-
-  it("falsy", () => {
-    expect(isTypeofObject("")).toBeFalsy();
-    expect(isTypeofObject(0)).toBeFalsy();
-    expect(isTypeofObject(false)).toBeFalsy();
-  });
-});
-
-describe("isTypeofString", () => {
-  it("type", () => {
-    expect(isTypeofString).toBeTypeOf("function");
-    expect(isTypeofString).toBeInstanceOf(Function);
-  });
-
-  it("truthy", () => {
-    expect(isTypeofString("")).toBeTruthy();
-    expect(isTypeofString(String(""))).toBeTruthy();
-  });
-
-  it("falsy", () => {
-    expect(isTypeofString({})).toBeFalsy();
-    expect(isTypeofString(0)).toBeFalsy();
-    expect(isTypeofString(false)).toBeFalsy();
   });
 });
 
