@@ -37,7 +37,7 @@
     "release": "pnpm test && pnpm build && release-it"
   },
   "dependencies": {
-    "@regions-of-indonesia/types": "5.1.0"
+    "@regions-of-indonesia/types": "5.1.1"
   },
   "devDependencies": {
     "@vitest/ui": "^0.34.4",
