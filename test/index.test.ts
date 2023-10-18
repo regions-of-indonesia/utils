@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { REGION_CODE_REGEXP, isRegionCode, isRegionName, isRegion, joinRegionCode, splitRegionCode } from "../src";
+import { REGION_CODE_REGEXP, isRegionCode, isRegionName, isRegion, isRegions, joinRegionCode, splitRegionCode } from "../src";
 
 const JOINED_REGION_CODES = [
   "1",
@@ -141,6 +141,24 @@ describe("isRegion", () => {
     expect(isRegion({ code: "1" })).toBeFalsy();
     expect(isRegion({ name: "Region" })).toBeFalsy();
     expect(isRegion({ code: "Region", name: "1" })).toBeFalsy();
+  });
+});
+
+describe("isRegions", () => {
+  it("type", () => {
+    expect(isRegions).toBeTypeOf("function");
+    expect(isRegions).toBeInstanceOf(Function);
+  });
+
+  it("truthy", () => {
+    expect(isRegions([{ code: "1", name: "Region" }])).toBeTruthy();
+  });
+
+  it("falsy", () => {
+    expect(isRegions([{}])).toBeFalsy();
+    expect(isRegions([{ code: "1" }])).toBeFalsy();
+    expect(isRegions([{ name: "Region" }])).toBeFalsy();
+    expect(isRegions([{ code: "Region", name: "1" }])).toBeFalsy();
   });
 });
 
